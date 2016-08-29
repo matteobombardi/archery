@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+		<% include ../partials/head %>
+	</head>
+	
+	<body>
+	<div id="fh5co-page">
+		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+		
+		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
+			<% include ../partials/aside %>
+		</aside>
+
+		<div id="fh5co-main">
+
+				<div class="row" id="breadcumb">
+					<div class="col-md-10">
+						<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
+							<div class="fh5co-icon">
+								<i class="icon-target"></i>
+							</div>
+							<div class="fh5co-text">
+								
+									<% 
+										date = dateFormat(date,"dd/mm/yyyy hh:MM");
+									%>
+									
+								<!-- <h3>Torneo: <%= description %> - <%= date %></h3> -->
+							</div>
+						</div>
+					</div>
+				</div>
+	
+
+		
+			<div class="fh5co-cards">
+			
+					<script>
+						setTimeout(function(){showSessionScoreboard('<%= sessionId %>',true)}, 2000);
+					</script>
+					
+					
+
+					<div class="fh5co-flex-wrap">
+						<div class="fh5co-card animate-box scoreboard" data-animate-effect="fadeInLeft" id="scoreboard0">
+							<h5>Scoreboard</h5>
+							<hr>
+							<p>Loading...</p>
+							<hr>
+						</div>
+
+					</div>
+
+
+
+			</div>
+
+
+		</div>
+	</div>
+
+	<% include ../partials/footer %>
+
+	</body>
+</html>
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+		<% include ../partials/head %>
+	</head>
+	
+	<body>
+	<div id="fh5co-page">
+		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+		
+		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
+			<% include ../partials/aside %>
+			
+			
+		</aside>
+		
+		
+		<div id="fh5co-main">
+
+		
+			<div class="fh5co-cards">
+
+					<div class="fh5co-flex-wrap">
+					
+						<div class="fh5co-card animate-box" data-animate-effect="fadeInLeft" style="width:45%; height:100%">
+							<h3>Benvenuto, Inizia un nuovo torneo!</h3>
+							
+							<form action="start" method="post" enctype="multipart/form-data">
+								 <fieldset>
+
+									<input type="text" id="description" name="description" placeholder="Inserisci una descrizione" />
+
+									<br><br>
+									<input type="submit" value="Crea Torneo!" />
+								 </fieldset>
+							</form>
+						</div>
+						
+						
+						<div class="fh5co-card animate-box" data-animate-effect="fadeInLeft" style="width:45%; height:100%">
+							<h3>Ultimi tornei</h3>
+							<ul>
+							<% for (i=0; i<tournaments.length; i++){ %>
+								<li> 
+									<% 
+										var date = tournaments[i].date;
+										date = dateFormat(date,"dd/mm/yyyy hh:MM:ss");
+									%>
+									
+									<a href=/tournament/<%= tournaments[i]._id %> >
+									<strong><%= tournaments[i].description %></strong> <br> del <%= date %></a> <hr>
+								</li>
+							<% } %>
+							</ul>
+						</div>
+						
+					</div>
+			</div>
+
+
+		</div>
+	</div>
+
+	<% include ../partials/footer %>
+
+	</body>
+</html>
+
