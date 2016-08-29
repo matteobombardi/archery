@@ -21,13 +21,11 @@ const API_START = 'startTournament';
 const API_TOURNAMENT = 'getTournament';
 
 // Connection URL. This is where your mongodb server is running.
-const url = Array( 
-			'mongodb://192.168.1.101:27017/archery',
-			'mongodb://192.168.1.102:27017/archery',
-			'mongodb://192.168.1.103:27017/archery'
-		);
+const url = Array(OPENSHIFT_MONGODB_DB_URL + 'archery');
 
-mongoose.connect(url);
+var mongodb_connection_string = process.env.OPENSHIFT_MONGODB_DB_URL + db_name;
+
+mongoose.connect(mongodb_connection_string);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -597,8 +595,8 @@ if (cluster.isMaster) {
 	  cert: fs.readFileSync('ssl/cert.pem')
 	};
   
-	var https = require('https');
-	var httpsServer = https.createServer(options, app);
+	var https = require('http');
+	var httpsServer = https.createServer(app);
 
 	var server = httpsServer.listen(SERVER_PORT, SERVER_HOST, function () {
 
